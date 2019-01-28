@@ -1,0 +1,51 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct student Student;
+
+struct student
+{
+    char* name;
+    float gpa;
+    int age;
+};
+
+void printStudentInfo(Student);
+
+int main()
+{
+    Student student1;
+    Student student2;
+    Student student3;
+    
+    student1.name = malloc(15);
+    student2.name = malloc(15);
+    student3.name = malloc(15);
+    
+    puts("Enter the data for 3 students");
+    
+    scanf("%s", student1.name);
+    //puts(student1.name);
+    scanf("%f", &student1.gpa);
+    scanf("%d", &student1.age);
+    
+    scanf("%s", student2.name);
+    scanf("%f", &student2.gpa);
+    scanf("%d", &student2.age);
+    
+    scanf("%s", student3.name);
+    scanf("%f", &student3.gpa);
+    scanf("%d", &student3.age);
+    puts("");
+  
+    printStudentInfo(student1);
+    printStudentInfo(student2);
+    printStudentInfo(student3);
+    
+    return 0;
+}
+
+void printStudentInfo(Student student)
+{
+    printf("Student = { %s, %.2f, %d }\n", student.name, student.gpa, student.age);
+}
